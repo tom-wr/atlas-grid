@@ -1,0 +1,40 @@
+{
+    "env": {
+        "browser": false,
+        "node": true,
+        "es6": true,
+        "jest/globals": true
+    },
+    "globals": {
+        "expect": true,
+        "jest": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 2017,
+        "sourceType": "module"
+    },
+    "plugins": ["jest"],
+    "rules": {
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "plugins": [],
+        "no-underscore-dangle": 0,
+        "no-unused-expressions": 0,
+        "import/no-extraneous-dependencies": 0
+    }
+}
