@@ -1,6 +1,6 @@
 {
-  "name": "atlas",
-  "version": "0.0.1",
+  "name": "atlas-grid",
+  "version": "0.1.0",
   "description": "2d array manipulation",
   "main": "index.js",
   "directories": {
@@ -20,7 +20,7 @@
     "testEnvironment": "jest-environment-node"
   },
   "author": "tom-wr",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "eslint": "^5.6.1",
     "eslint-plugin-jest": "^21.24.1",
