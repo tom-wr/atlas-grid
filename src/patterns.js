@@ -1,8 +1,8 @@
-const { zeroLatch, negativeLatch, get, cleanse } = require('./utils');
+const { zeroLatch, negativeLatch, get, cleanse, copy } = require('./utils');
 const { rowRange } = require('./operations');
 
 const area = (x, y, size, arr) => {
-  const arrCopy = [...arr].map(arrRow => [...arrRow]);
+  const arrCopy = copy(arr);
   return arrCopy.splice(zeroLatch(x - size), negativeLatch(x - size) + (2 * size + 1))
     .map(row => row.splice(zeroLatch(y - size), negativeLatch(y - size) + (2 * size + 1)));
 };
@@ -58,6 +58,21 @@ const diamond = (x, y, size, arr) => {
   return diamondCells;
 };
 
+const neighbours = (x, y, arr) => {
+  const copyArr = copy(arr);
+  const neighbourCells = [];
+  for(let i = x - 1; i <= x + 1; i++) {
+    for(let j = y - 1; j <= y + 1; j++) {
+      if(!(i === x && j === y) 
+        && (typeof copyArr[i] !== 'undefined')
+        && (typeof copyArr[i][j] !== 'undefined')) {
+        neighbourCells.push(copyArr[i][j]);
+      }
+    }
+  }
+  return neighbourCells;
+};
+
 const row = (x, arr) => arr[x] || null;
 
 module.exports = {
@@ -68,5 +83,6 @@ module.exports = {
   cross,
   diagonal,
   diamond,
+  neighbours,
   row
 };

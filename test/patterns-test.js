@@ -102,6 +102,20 @@ describe('Patterns', () => {
     });
   });
 
+  describe('2dArray.neighbours', () => {
+    test('should get neighbouring cells (including diagonal)', () => {
+      const expectedResult1 = [{ name: '0:1' }, { name: '1:0' }, { name: '1:1' }];
+      const expectedResult2 = [
+        { name: '0:0' }, { name: '0:1' }, { name: '0:2' }, 
+        { name: '1:0' }, { name: '1:2' },
+        { name: '2:0' }, { name: '2:1' }, { name: '2:2' }];
+      const expectedResult3 = [{ name: '1:1' }, { name: '1:2' }, { name: '2:1' }];
+      expect(patterns.neighbours(1, 1, test3x3())).toEqual(expectedResult2);
+      expect(patterns.neighbours(0, 0, test3x3())).toEqual(expectedResult1);
+      expect(patterns.neighbours(2, 2, test3x3())).toEqual(expectedResult3);
+    });
+  });
+
   describe('2dArray.row', () => {
     test('should get cells in same row', () => {
       const expectedResult = [{ name: '1:0' }, { name: '1:1' }, { name: '1:2' }];
