@@ -177,4 +177,18 @@ describe('Operations', () => {
     //   });
     // });
   });
+
+  describe('2dArray.map', () => {
+    test('should map function over 2d array cells', () => {
+      const given = [
+        [1, 2, 3],
+        [4, 5, 6],
+      ];
+      const expected = [
+        [2, 4, 6],
+        [8, 10, 12],
+      ];
+      expect(operations.map(given, x => x *2 )).toEqual(expected);
+    });
+  });
 });

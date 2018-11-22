@@ -36,6 +36,14 @@ const columnShift = (arr) => {
   return arrCopy.map(row => row.splice(1, row.length - 1));
 };
 
+const map = (arr, callback) => {
+  return arr.map(row => {
+    return row.map(cell => {
+      return callback(cell);
+    });
+  });
+};
+
 const rowAppend = (newRow, arr) => {
   const arrCopy = copy(arr);
   arrCopy[arrCopy.length] = newRow;
@@ -89,6 +97,7 @@ module.exports = {
   columnPrepend,
   columnReplace,
   columnShift,
+  map,
   rowAppend,
   rowInsert,
   rowPop,

@@ -61,9 +61,9 @@ const diamond = (x, y, size, arr) => {
 const neighbours = (x, y, arr) => {
   const copyArr = copy(arr);
   const neighbourCells = [];
-  for(let i = x - 1; i <= x + 1; i++) {
-    for(let j = y - 1; j <= y + 1; j++) {
-      if(!(i === x && j === y) 
+  for (let i = x - 1; i <= x + 1; i++) {
+    for (let j = y - 1; j <= y + 1; j++) {
+      if (!(i === x && j === y)
         && (typeof copyArr[i] !== 'undefined')
         && (typeof copyArr[i][j] !== 'undefined')) {
         neighbourCells.push(copyArr[i][j]);
